@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B1A53ACB-4718-4D44-B523-9CD5BB242C19}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSIPPayCertify.Entity</RootNamespace>
+    <AssemblyName>CSIPPayCertify.Entity</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EntityFORM_COLUMN.cs" />
+    <Compile Include="EntityML2PL.cs" />
+    <Compile Include="EntityM_LBatchLog.cs" />
+    <Compile Include="EntityPay_Card.cs" />
+    <Compile Include="EntityPay_CardSV.cs" />
+    <Compile Include="EntityPay_CardSV_Temp.cs" />
+    <Compile Include="EntityPay_Card_Temp.cs" />
+    <Compile Include="EntityPay_Certify.cs" />
+    <Compile Include="EntityPay_Macro.cs" />
+    <Compile Include="EntityPay_Return.cs" />
+    <Compile Include="EntityPay_Serial.cs" />
+    <Compile Include="EntityPay_SerialSV.cs" />
+    <Compile Include="EntityPay_SV.cs" />
+    <Compile Include="EntityPay_SV_Feedback.cs" />
+    <Compile Include="EntityPay_SV_Tmp.cs" />
+    <Compile Include="EntityReport.cs" />
+    <Compile Include="EntitySet_Pay_Certify.cs" />
+    <Compile Include="EntitySet_SelfOther.cs" />
+    <Compile Include="EntitySystem_log.cs" />
+    <Compile Include="EntityPay_ReturnSV.cs" />
+    <Compile Include="Entity_FileInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CSIP_CommonModel\Framework.Data\OM\Framework.Data.OM.csproj">
+      <Project>{efbb5f60-82ae-4c7f-a773-4e719efdf037}</Project>
+      <Name>Framework.Data.OM</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

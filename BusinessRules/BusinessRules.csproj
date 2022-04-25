@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CE5C792C-F8FC-4D92-9576-0D96099508F8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSIPPayCertify.BusinessRules</RootNamespace>
+    <AssemblyName>CSIPPayCertify.BusinessRules</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CSIPCommonModel.BaseItem">
+      <HintPath>..\CommonDll\CSIPCommonModel.BaseItem.dll</HintPath>
+    </Reference>
+    <Reference Include="CSIPCommonModel.BusinessRules">
+      <HintPath>..\CommonDll\CSIPCommonModel.BusinessRules.dll</HintPath>
+    </Reference>
+    <Reference Include="CSIPCommonModel.EntityLayer">
+      <HintPath>..\CommonDll\CSIPCommonModel.EntityLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="Framework.Common">
+      <HintPath>..\CommonDll\Framework.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Framework.Data.OM">
+      <HintPath>..\CommonDll\Framework.Data.OM.dll</HintPath>
+    </Reference>
+    <Reference Include="Framework.WebControls">
+      <HintPath>..\CommonDll\Framework.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WebPage\Bin\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WebPage\Bin\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WebPage\Bin\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WebPage\Bin\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BRFORM_COLUMN.cs" />  
+    <Compile Include="BRML2PL.cs" />
+    <Compile Include="BRM_FileInfo.cs" />
+    <Compile Include="BRM_LBatchLog.cs" />	
+    <Compile Include="BRM_PROPERTY_CODE.cs" />
+    <Compile Include="BRPay_Card.cs" />
+    <Compile Include="BRPay_CardSV.cs" />
+    <Compile Include="BRPay_CardSV_Temp.cs" />
+    <Compile Include="BRPay_Card_Temp.cs" />
+    <Compile Include="BRPay_Certify.cs" />
+    <Compile Include="BRPay_Macro.cs" />
+    <Compile Include="BRPay_Reutrn.cs" />
+    <Compile Include="BRPay_ReutrnSV.cs" />
+    <Compile Include="BRPay_Serial.cs" />
+    <Compile Include="BRPay_SerialSV.cs" />
+    <Compile Include="BRPay_SV.cs" />
+    <Compile Include="BRPay_SV_Feedback.cs" />
+    <Compile Include="BRPay_SV_Tmp.cs" />
+    <Compile Include="BRReport.cs" />
+    <Compile Include="BRSet_Pay_Certify.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BRSet_SelfOther.cs" />
+    <Compile Include="BRSystem_Log.cs" />
+    <Compile Include="BRWebService.cs" />
+    <Compile Include="BR_Excel_File.cs" />
+    <Compile Include="MainFrameInfo.cs" />
+    <Compile Include="MainFrameInfo_tmp.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WS_PayOff\Reference.cs" />
+    <Compile Include="Web References\WS_PayOff\Reference1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://10.5.17.146/ICP/WebServices/Macro/WS_PayOff.asmx%3fop=GetPayOffData">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WS_PayOff\</RelPath>
+      <UpdateFromURL>http://10.5.17.146/ICP/WebServices/Macro/WS_PayOff.asmx%3fop=GetPayOffData</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CSIPPayCertify_BusinessRules_WS_PayOff_WS_PayOff</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WS_PayOff\GetPayOffDataTableResponseGetPayOffDataTableResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WS_PayOff\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference1.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WS_PayOff\vssver.scc" />
+    <None Include="Web References\WS_PayOff\WS_PayOff.disco" />
+    <None Include="Web References\WS_PayOff\WS_PayOff.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{b1a53acb-4718-4d44-b523-9cd5bb242c19}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

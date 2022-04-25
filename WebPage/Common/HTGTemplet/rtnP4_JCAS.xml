@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<hostgateway>
+ <header>
+  <action type="transaction"/>
+  <data id="sessionId" value="CSIPEXVGit1ZAFb3nWNjY5SCPROZ13120"/>
+  <data id="applicationId" value="CSIP"/>
+  <data id="luType" value="LU62"/>
+  <data id="transactionId" value="P4_JCAS"/>
+ </header>
+ <line no="1">
+  <msgHeader/>
+  <msgBody>
+   <data id="RTL_BALANCE" value=" 00000000000"/>
+   <data id="LAST_PAY_DATE" value="20101202"/>
+   <data id="FREE_INT_NO" value=" 000"/>
+   <data id="ACCT" value="2009110520100291"/>
+   <data id="BREAK_AMT" value=" 0000000"/>
+   <data id="TRAN_ID" value="JCAS"/>
+   <data id="FUNCTION_CODE" value="1"/>
+   <data id="PERIOD_AMT" value=" 000010461"/>
+   <data id="PRODUCT" value="02"/>
+   <data id="DATE" value="20091126"/>
+   <data id="CUST_ID" value="A104366886"/>
+   <data id="LATE_CHARGE" value=" 00000000000"/>
+   <data id="FEE_RATE" value="0.0300"/>
+   <data id="SHORT_NAME" value="唐洪奎"/>
+   <data id="UNPAID_CNT" value="36"/>
+   <data id="SET_DATE" value="00000000"/>
+   <data id="PRE_SETTLE_DATE" value="20101202"/>
+   <data id="USER_ID" value=""/>
+   <data id="PP_FEE_RATE" value="0.0000"/>
+   <data id="TOT_BALANCE" value=" 00000000000"/>
+   <data id="PROJ_CODE" value="12063"/>
+   <data id="MATURITY_DATE" value="20131223"/>
+   <data id="PERIOD_NO" value=" 048"/>
+   <data id="PAID_CNT" value=" 012"/>
+   <data id="BLOCK_DATE" value="00000000"/>
+   <data id="BREAK_EXP_DATE" value="20101126"/>
+   <data id="LINE_CNT" value="0000"/>
+   <data id="RC_CL_INT" value=" 00000000000"/>
+   <data id="ACCT_NBR" value="1234069000848664"/>
+   <data id="MESSAGE_TYPE" value="0001"/>
+   <data id="INT_DAY" value="23"/>
+   <data id="TOT_AMT" value=" 00000323246"/>
+   <data id="PRMRATE" value="0.0000"/>
+   <data id="LNBGEDT" value="0"/>
+   <data id="AMT" value=" 000400000"/>
+   <data id="RATE_DIS" value="0.0888"/>
+   <data id="PP_FLAG" value="Y"/>
+   <data id="LNBGNO" value="0"/>
+   <data id="PERIOD_NO_DIS" value=" 006"/>
+   <data id="SETTLE_MAIN_DATE" value="20101203"/>
+   <data id="PROGRAM_ID" value="JCGU619"/>
+   <data id="BLOCK_CODE" value=""/>
+   <data id="CURR_BALANCE" value=" 000000000"/>
+   <data id="PERIOD_NO_NEW" value="0"/>
+   <data id="RATE_DIF" value="-0323246"/>
+   <data id="NEST_PAY_DATE" value="20110102"/>
+   <data id="FEE" value=" 000012000"/>
+   <data id="LNPCFEE" value="0.0000"/>
+   <data id="NGNO_FLAG" value="N"/>
+   <data id="LAST_TXN_DATE" value="20101203"/>
+   <data id="NEW_CARD_NO" value="0000000000000000"/>
+   <data id="CASH_BALANCE" value=" 00000000000"/>
+   <data id="NGFLAG" value=" "/>
+   <data id="CARD_NO" value="1234069000848664"/>
+   <data id="BREAK_RATE" value="0.0300"/>
+   <data id="PRMAMT" value="0"/>
+   <data id="PERIOD_AMT_DIS" value=" 000009932"/>
+   <data id="RATE" value="0.1199"/>
+   <data id="SETTLE_DATE" value="20101202"/>
+  </msgBody>
+ </line>
+</hostgateway>

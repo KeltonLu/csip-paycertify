@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPayOffDataString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPayOffDataStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPayOffDataStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPayOffDataByte">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPayOffDataByteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPayOffDataByteResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPayOffDataTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="functionCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="queryValue" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPayOffDataTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPayOffDataTableResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPayOffDataSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="functionCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="queryValue" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPayOffDataSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPayOffDataSetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="base64Binary" nillable="true" type="s:base64Binary" />
+      <s:element name="DataTable" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataStringSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPayOffDataString" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataStringSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPayOffDataStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataByteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPayOffDataByte" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataByteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPayOffDataByteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataTableSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPayOffDataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataTableSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPayOffDataTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataSetSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPayOffDataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataSetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPayOffDataSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn" />
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataStringHttpGetIn">
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataByteHttpGetIn">
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataByteHttpGetOut">
+    <wsdl:part name="Body" element="tns:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataTableHttpGetIn">
+    <wsdl:part name="functionCode" type="s:string" />
+    <wsdl:part name="queryValue" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataTableHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataSetHttpGetIn">
+    <wsdl:part name="functionCode" type="s:string" />
+    <wsdl:part name="queryValue" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataSetHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataStringHttpPostIn">
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataByteHttpPostIn">
+    <wsdl:part name="xml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataByteHttpPostOut">
+    <wsdl:part name="Body" element="tns:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataTableHttpPostIn">
+    <wsdl:part name="functionCode" type="s:string" />
+    <wsdl:part name="queryValue" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataTableHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataSetHttpPostIn">
+    <wsdl:part name="functionCode" type="s:string" />
+    <wsdl:part name="queryValue" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPayOffDataSetHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:portType name="WS_PayOffSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataString">
+      <wsdl:input message="tns:GetPayOffDataStringSoapIn" />
+      <wsdl:output message="tns:GetPayOffDataStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataByte">
+      <wsdl:input message="tns:GetPayOffDataByteSoapIn" />
+      <wsdl:output message="tns:GetPayOffDataByteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataTable">
+      <wsdl:input message="tns:GetPayOffDataTableSoapIn" />
+      <wsdl:output message="tns:GetPayOffDataTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataSet">
+      <wsdl:input message="tns:GetPayOffDataSetSoapIn" />
+      <wsdl:output message="tns:GetPayOffDataSetSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WS_PayOffHttpGet">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpGetIn" />
+      <wsdl:output message="tns:HelloWorldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataString">
+      <wsdl:input message="tns:GetPayOffDataStringHttpGetIn" />
+      <wsdl:output message="tns:GetPayOffDataStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataByte">
+      <wsdl:input message="tns:GetPayOffDataByteHttpGetIn" />
+      <wsdl:output message="tns:GetPayOffDataByteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataTable">
+      <wsdl:input message="tns:GetPayOffDataTableHttpGetIn" />
+      <wsdl:output message="tns:GetPayOffDataTableHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataSet">
+      <wsdl:input message="tns:GetPayOffDataSetHttpGetIn" />
+      <wsdl:output message="tns:GetPayOffDataSetHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WS_PayOffHttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataString">
+      <wsdl:input message="tns:GetPayOffDataStringHttpPostIn" />
+      <wsdl:output message="tns:GetPayOffDataStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataByte">
+      <wsdl:input message="tns:GetPayOffDataByteHttpPostIn" />
+      <wsdl:output message="tns:GetPayOffDataByteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataTable">
+      <wsdl:input message="tns:GetPayOffDataTableHttpPostIn" />
+      <wsdl:output message="tns:GetPayOffDataTableHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataSet">
+      <wsdl:input message="tns:GetPayOffDataSetHttpPostIn" />
+      <wsdl:output message="tns:GetPayOffDataSetHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WS_PayOffSoap" type="tns:WS_PayOffSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataString">
+      <soap:operation soapAction="http://tempuri.org/GetPayOffDataString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataByte">
+      <soap:operation soapAction="http://tempuri.org/GetPayOffDataByte" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataTable">
+      <soap:operation soapAction="http://tempuri.org/GetPayOffDataTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataSet">
+      <soap:operation soapAction="http://tempuri.org/GetPayOffDataSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WS_PayOffSoap12" type="tns:WS_PayOffSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataString">
+      <soap12:operation soapAction="http://tempuri.org/GetPayOffDataString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataByte">
+      <soap12:operation soapAction="http://tempuri.org/GetPayOffDataByte" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataTable">
+      <soap12:operation soapAction="http://tempuri.org/GetPayOffDataTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataSet">
+      <soap12:operation soapAction="http://tempuri.org/GetPayOffDataSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WS_PayOffHttpGet" type="tns:WS_PayOffHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataString">
+      <http:operation location="/GetPayOffDataString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataByte">
+      <http:operation location="/GetPayOffDataByte" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataTable">
+      <http:operation location="/GetPayOffDataTable" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataSet">
+      <http:operation location="/GetPayOffDataSet" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WS_PayOffHttpPost" type="tns:WS_PayOffHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataString">
+      <http:operation location="/GetPayOffDataString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataByte">
+      <http:operation location="/GetPayOffDataByte" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataTable">
+      <http:operation location="/GetPayOffDataTable" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayOffDataSet">
+      <http:operation location="/GetPayOffDataSet" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WS_PayOff">
+    <wsdl:port name="WS_PayOffSoap" binding="tns:WS_PayOffSoap">
+      <soap:address location="http://10.5.17.146/ICP/WebServices/Macro/WS_PayOff.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WS_PayOffSoap12" binding="tns:WS_PayOffSoap12">
+      <soap12:address location="http://10.5.17.146/ICP/WebServices/Macro/WS_PayOff.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WS_PayOffHttpGet" binding="tns:WS_PayOffHttpGet">
+      <http:address location="http://10.5.17.146/ICP/WebServices/Macro/WS_PayOff.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WS_PayOffHttpPost" binding="tns:WS_PayOffHttpPost">
+      <http:address location="http://10.5.17.146/ICP/WebServices/Macro/WS_PayOff.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

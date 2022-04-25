@@ -1,0 +1,409 @@
+    /// <summary>
+    /// 批次驗證所有沒有驗證的資料(無Confirm直接判錯)
+    /// </summary>
+    private void AllValidate()
+    {
+        #region 宣告變數
+        //* 1331(JCEH)電文欄位: 查詢起始筆數,訊息別,客戶姓名,客戶地址1,客戶地址2,客戶地址3,郵遞區號,卡號,卡人ID,歸戶ID,發卡日,卡人姓名,狀況碼,狀況碼日期,前況碼,前況碼日期,最後繳款日,餘額,不良資產是否已經出售
+        string[] aryJCEHCol = new string[] { "LINE_CNT", "MESSAGE_TYPE", "SHORT_NAME", "CITY", "ADDR_1", "ADDR_2", "ZIP", "CARDHOLDER", "CUSTID", "ACCT_CUST_ID", "CARDHOLDER_NAME", "OPENED", "BLOCK", "BLOCK_DTE", "ALT_BLOCK", "ALT_BLOCK_DTE", "DTE_LST_PYMT", "CURR_BAL", "AMC_FLAG" };
+        Hashtable htInput = new Hashtable();    //* 電文上行輸入欄位
+        DataTable dtblJCEH;                     //* 主機回傳JCEH電文
+        DataView dvJECH;                        //* 主機回傳JCEH電文
+        string strMsgID = "";                   //* 方法回傳消息ID
+        string strMsg = "";                     //* 電文回傳信息
+        EntityPay_SV_Tmp ePaySVTmp;             //* 剔退的
+        Hashtable htJCU9RebackReason = new Hashtable();     //* 驗證JCU9和JCII返回的需確認信息列表
+        Hashtable htSVRebackReason = new Hashtable();       //* 比對JCEH電文和SV的需確認信息列表
+        string strType = ""; //* 清證種類  C-信用卡Only , N - ML Only , M - 卡+ML
+        int intP4_JCU9 = -1;
+        int intP4_JCII = -1;
+        string strUserID = "";
+        #endregion
+
+        try
+        {
+            //* 取得需要驗證的資料,沒有則返回
+            DataTable dtblCheckInfo = BRPay_SV_Tmp.GetNoCheck();
+            if (dtblCheckInfo == null || dtblCheckInfo.Rows.Count <= 0)
+            {
+                //* 無需驗證資料
+                base.strClientMsg = MessageHelper.GetMessage("04_02010100_042");
+                return;
+            }
+
+            //* 得到所有還未驗證的CaseNo並且?圈驗證
+            DataView dvCheckInfo = dtblCheckInfo.DefaultView;
+            DataTable dtblCaseNo = dvCheckInfo.ToTable(true, "UserID", "case_no");
+            for (int i = 0; i < dtblCaseNo.Rows.Count; i++)
+            {
+                #region 得到當前需要驗證的CaseNo資料
+                dvCheckInfo.RowFilter = " case_no = '" + dtblCaseNo.Rows[i]["case_no"].ToString() + "' ";
+                #endregion
+                #region 設置剔退資料
+                ePaySVTmp = new EntityPay_SV_Tmp();
+                ePaySVTmp.case_no = dvCheckInfo[0]["CASE_NO"].ToString();
+                ePaySVTmp.CheckTime = int.Parse(dvCheckInfo[0]["CheckTime"].ToString() == "" ? "0" : dvCheckInfo[0]["CheckTime"].ToString());
+                #endregion
+                #region 得到主機JCEH傳回信息
+                strUserID = dtblCaseNo.Rows[i]["UserID"].ToString();
+                strMsg = "";
+                htInput.Clear();
+                htInput.Add("ACCT_NBR", strUserID);
+                htInput.Add("FUNCTION_CODE", "1");
+                sHostMsg = MessageHelper.GetMessage("04_00000000_034");
+                dtblJCEH = MainFrameInfo.GetMainframeData(htInput, "P4_JCEH", ref strMsg, aryJCEHCol);
+                #endregion
+                if (strMsg != "")
+                {
+                    #region 如果主機連接失敗或返回異常
+                    //*如果該ID不存在則需要剔退(不等於0000或0001都算不查到)
+                    if (strMsg == "目前電文主機上資料筆數為0" ||
+                        strMsg == "卡人卡片關係檔NOT FOUND" ||
+                        strMsg == "卡片檔NOT FOUND" ||
+                        strMsg == "檔案未開" ||
+                        strMsg == "該筆資料不存在" ||
+                        strMsg == "其他錯誤")
+                    {
+                        ePaySVTmp.RebackReason = MessageHelper.GetMessage("04_02010100_011");
+                        if (!BRPay_SV_Tmp.SetReback(ref strMsgID, ePaySVTmp))
+                        {
+                            //*剔退失敗
+                            sHostMsg = strMsg;
+                            sClientMsg = MessageHelper.GetMessage("04_02010100_031") + "   " + MessageHelper.GetMessage(strMsgID);
+                            return;
+                        }
+                        else
+                        {
+                            //*剔退成功,繼續下個?圈
+                            continue;
+                        }
+                    }
+                    else
+                    {
+                        sHostMsg = strMsg;
+                        sClientMsg = MessageHelper.GetMessage("04_02010100_031");
+                        return;
+                    }
+                    #endregion
+                }
+                else
+                {
+                    dvJECH = dtblJCEH.DefaultView;
+                    #region 1.如果有GCB卡.剔退
+                    dvJECH.RowFilter = " CARDHOLDER LIKE '40000189%'";
+                    if (dvJECH.Count > 0)
+                    {
+                        //* 原萬通客戶
+                        ePaySVTmp.RebackReason = MessageHelper.GetMessage("04_02010100_043");
+                        if (!BRPay_SV_Tmp.SetReback(ref strMsgID, ePaySVTmp))
+                        {
+                            //剔退失敗
+                            sClientMsg = MessageHelper.GetMessage("04_02010100_031") + "   " + MessageHelper.GetMessage(strMsgID);
+                            return;
+                        }
+                        else
+                        {
+                            //剔退成功,跳出循環
+                            continue;
+                        }
+                    }
+                    #endregion
+                    #region 2.如果BLK沒有SBAMZ,剔退
+                    //* 是否沒有SBAZM卡
+                    dvJECH.RowFilter = " BLOCK ='S' OR BLOCK ='B' OR BLOCK ='A' OR BLOCK ='M' OR BLOCK ='Z'";
+                    if (dvJECH.Count <= 0)
+                    {
+                        //* 狀況碼不為SBAMZ
+                        ePaySVTmp.RebackReason = MessageHelper.GetMessage("04_02010100_044");
+                        if (!BRPay_SV_Tmp.SetReback(ref strMsgID, ePaySVTmp))
+                        {
+                            //剔退失敗
+                            sClientMsg = MessageHelper.GetMessage("04_02010100_031") + "   " + MessageHelper.GetMessage(strMsgID);
+                            return;
+                        }
+                        else
+                        {
+                            //剔退成功,跳出循環
+                            continue;
+                        }
+                    }
+                    #endregion
+                    #region 3.如果BLK有空白或R,剔退
+                    //* 是否有BLK=空白或R的卡
+                    dvJECH.RowFilter = " BLOCK ='' OR BLOCK ='R'";
+                    if (dvJECH.Count > 0)
+                    {
+                        //* 歸戶下含有流通或R管制卡片
+                        ePaySVTmp.RebackReason = MessageHelper.GetMessage("04_02010100_045");
+                        if (!BRPay_SV_Tmp.SetReback(ref strMsgID, ePaySVTmp))
+                        {
+                            //剔退失敗
+                            sClientMsg = MessageHelper.GetMessage("04_02010100_031") + "   " + MessageHelper.GetMessage(strMsgID);
+                            return;
+                        }
+                        else
+                        {
+                            //剔退成功,跳出循環
+                            continue;
+                        }
+                    }
+                    #endregion
+                    #region 4.歸戶目前餘額不為0,剔退
+                    //* 歸戶目前餘額不為0
+                    dvJECH.RowFilter = " ISNULL(CURR_BAL,'0') <> '0' AND CURR_BAL <> ''";
+                    for (int j = 0; j < dvJECH.Count; j++)
+                    {
+                        if (!string.IsNullOrEmpty(dvJECH[j]["CURR_BAL"].ToString()) && dvJECH[j]["CURR_BAL"].ToString().Trim() != "0")
+                        {
+                            //* 歸戶目前餘額不為0
+                            ePaySVTmp.RebackReason = MessageHelper.GetMessage("04_02010100_046");
+                            if (!BRPay_SV_Tmp.SetReback(ref strMsgID, ePaySVTmp))
+                            {
+                                //剔退失敗
+                                sClientMsg = MessageHelper.GetMessage("04_02010100_031") + "   " + MessageHelper.GetMessage(strMsgID);
+                                return;
+                            }
+                            else
+                            {
+                                //剔退成功,跳出循環
+                                continue;
+                            }
+                        }
+                    }                    
+                    #endregion
+                    #region 5.?圈驗證每張卡.同時得到清證種類
+                    intP4_JCU9 = -1;
+                    intP4_JCII = -1;
+                    strType = "";
+                    htJCU9RebackReason.Clear();
+                    dvJECH.RowFilter = " BLOCK ='S' OR BLOCK ='B' OR BLOCK ='A' OR BLOCK ='M' OR BLOCK ='Z'";
+                    for (int j = 0; j < dvJECH.Count; j++)
+                    {
+
+                        if (!BRPay_SV_Tmp.ValidationSV(strUserID,
+                                                        dvJECH[j]["CARDHOLDER"].ToString().Trim(),
+                                                        dvJECH[j]["BLOCK"].ToString().Trim(),
+                                                        dvJECH[j]["BLOCK_DTE"].ToString(),
+                                                        dvJECH[j]["AMC_FLAG"].ToString(),
+                                                        ref htJCU9RebackReason, ref strMsgID, ref intP4_JCU9, ref intP4_JCII))
+                        {
+                            //* 出錯
+                            sHostMsg = MessageHelper.GetMessage(strMsgID);
+                            sClientMsg = MessageHelper.GetMessage("04_02010100_031");
+                            return;
+                        }
+                        if (strMsgID != "")
+                        {
+                            sHostMsg = MessageHelper.GetMessage(strMsgID);
+                        }
+
+                        #region 得到清證種類 (C-CardOnly,N-MLOnly,M-Card+ML)
+                        if (Function.IsML(dvJECH[j]["CARDHOLDER"].ToString()) == 1)
+                        {
+                            //* 當前卡是ML
+                            //* 當前卡是信用卡
+                            switch (strType)
+                            {
+                                case "":
+                                    strType = "N";
+                                    break;
+                                case "C":
+                                    strType = "M";
+                                    break;
+                                case "N":
+                                    strType = "N";
+                                    break;
+                                case "M":
+                                    strType = "M";
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            //* 當前卡是信用卡
+                            switch (strType)
+                            {
+                                case "":
+                                    strType = "C";
+                                    break;
+                                case "C":
+                                    strType = "C";
+                                    break;
+                                case "N":
+                                    strType = "M";
+                                    break;
+                                case "M":
+                                    strType = "M";
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        #endregion
+                    }
+                    if (htJCU9RebackReason.Count > 0)
+                    {
+                        ePaySVTmp.RebackReason = htJCU9RebackReason["0"].ToString();
+                        if (!BRPay_SV_Tmp.SetReback(ref strMsgID, ePaySVTmp))
+                        {
+                            //剔退失敗
+                            sClientMsg = MessageHelper.GetMessage("04_02010100_031") + "   " + MessageHelper.GetMessage(strMsgID);
+                            return;
+                        }
+                        else
+                        {
+                            //剔退成功,跳出循環
+                            continue;
+                        }
+                    }
+                    #endregion
+                    #region 6.驗證SV與JCEH是否相符
+                    htSVRebackReason.Clear();
+                    dvJECH.RowFilter = " BLOCK ='S' OR BLOCK ='B' OR BLOCK ='A' OR BLOCK ='M' OR BLOCK ='Z'";
+                    CheckSVSame(strType, dvCheckInfo, dvJECH, ref htSVRebackReason);
+                    if (htSVRebackReason.Count >= 2)
+                    {
+                        //* 多于2條:SV資料與主機資料比對不合
+                        ePaySVTmp.RebackReason = MessageHelper.GetMessage("04_02010100_056");
+                        if (!BRPay_SV_Tmp.SetReback(ref strMsgID, ePaySVTmp))
+                        {
+                            //剔退失敗
+                            sClientMsg = MessageHelper.GetMessage("04_02010100_031") + "   " + MessageHelper.GetMessage(strMsgID);
+                            return;
+                        }
+                        else
+                        {
+                            //剔退成功,跳出循環
+                            continue;
+                        }
+                    }
+                    else if (htSVRebackReason.Count > 0)
+                    {
+                        ePaySVTmp.RebackReason = htSVRebackReason["0"].ToString();
+                        if (!BRPay_SV_Tmp.SetReback(ref strMsgID, ePaySVTmp))
+                        {
+                            //剔退失敗
+                            sClientMsg = MessageHelper.GetMessage("04_02010100_031") + "   " + MessageHelper.GetMessage(strMsgID);
+                            return;
+                        }
+                        else
+                        {
+                            //剔退成功,跳出循環
+                            continue;
+                        }
+                    }
+                    #endregion
+                    #region 7.如果開立類型?M或者N,連接JCAS
+                    strMsg = "";
+                    dvJECH.RowFilter = " BLOCK ='S' OR BLOCK ='B' OR BLOCK ='A' OR BLOCK ='M' OR BLOCK ='Z'";
+                    if (strType == "N" || strType == "M")
+                    {
+                        if (CheckJCAS(dvJECH, ref strMsg))
+                        {
+                            //* 驗證成功
+                            if (!string.IsNullOrEmpty(strMsg))
+                            {
+                                //* 有需要confirm剔退信息
+                                ePaySVTmp.RebackReason = strMsg;
+                                if (!BRPay_SV_Tmp.SetReback(ref strMsgID, ePaySVTmp))
+                                {
+                                    //剔退失敗
+                                    sClientMsg = MessageHelper.GetMessage("04_02010100_031") + "   " + MessageHelper.GetMessage(strMsgID);
+                                    return;
+                                }
+                                else
+                                {
+                                    //剔退成功,跳出循環
+                                    continue;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (!string.IsNullOrEmpty(strMsg))
+                            {
+                                //* 驗證失敗
+                                sHostMsg = strMsg;
+                                sClientMsg = MessageHelper.GetMessage("04_02010100_032");
+                                return;
+                            }
+                        }
+                    }
+                    #endregion
+                    #region 8.檢查催收結案日期或原因
+                    strMsg = "";
+                    dvJECH.RowFilter = " BLOCK ='S' OR BLOCK ='B' OR BLOCK ='A' OR BLOCK ='M' OR BLOCK ='Z'";
+                    if (CheckMacro(strUserID, ref strMsg))
+                    {
+                        ePaySVTmp.RebackReason = strMsg;
+                        if (!BRPay_SV_Tmp.SetReback(ref strMsgID, ePaySVTmp))
+                        {
+                            //剔退失敗
+                            sClientMsg = MessageHelper.GetMessage("04_02010100_031") + "   " + MessageHelper.GetMessage(strMsgID);
+                            return;
+                        }
+                        else
+                        {
+                            //剔退成功,跳出循環
+                            continue;
+                        }
+                    }
+                    else
+                    {
+                        if (!string.IsNullOrEmpty(strMsg))
+                        {
+                            sClientMsg = strMsg;
+                            return;
+                        }
+                    }
+                    #endregion
+                    #region 9.結案日期比對
+                    strMsg = "";
+                    dvJECH.RowFilter = " BLOCK ='S' OR BLOCK ='B' OR BLOCK ='A' OR BLOCK ='M' OR BLOCK ='Z'";
+                    if (CheckLastDate(strUserID, strType, dvCheckInfo, dvJECH, ref strMsg))
+                    {
+                        ePaySVTmp.RebackReason = strMsg;
+                        if (!BRPay_SV_Tmp.SetReback(ref strMsgID, ePaySVTmp))
+                        {
+                            //剔退失敗
+                            sClientMsg = MessageHelper.GetMessage("04_02010100_031") + "   " + MessageHelper.GetMessage(strMsgID);
+                            return;
+                        }
+                        else
+                        {
+                            //剔退成功,跳出循環
+                            continue;
+                        }
+                    }
+                    else
+                    {
+                        if (!string.IsNullOrEmpty(strMsg))
+                        {
+                            sClientMsg = strMsg;
+                            return;
+                        }
+                    }
+                    #endregion
+
+                    #region Final.設置驗證通過主表該客戶資料
+                    if (!BRPay_SV_Tmp.SetAdd(ref strMsgID, ePaySVTmp))
+                    {
+                        //*開立失敗
+                        sClientMsg = MessageHelper.GetMessage("04_02010100_031") + "   " + MessageHelper.GetMessage(strMsgID);
+                        return;
+                    }
+                    #endregion
+                }
+            }
+        }
+        catch (Exception Ex)
+        {
+            sClientMsg = MessageHelper.GetMessage("04_02010100_031");
+            sAlertMsg = MessageHelper.GetMessage("00_00000000_000");
+            Logging.SaveLog(ELogLayer.UI, Ex);
+            return;
+        }
+
+    }

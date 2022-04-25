@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+***********************************************************************************************
+website.publishproj
+
+警告: 請勿修改此檔案，它是在進行 Web 發佈程序所使用。
+
+Copyright (C) Microsoft Corporation. 著作權所有，並保留一切權利。
+
+***********************************************************************************************
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.30319</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7c910c9f-2ad8-400c-9d9f-4101e4108948}</ProjectGuid>
+    <SourceWebPhysicalPath>$(MSBuildThisFileDirectory)</SourceWebPhysicalPath>
+    <SourceWebVirtualPath>/WebPage</SourceWebVirtualPath>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <SourceWebProject>
+    </SourceWebProject>
+    <SourceWebMetabasePath>
+    </SourceWebMetabasePath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- for VS2010 we need to use 10.5 but for VS2012+ we should use VisualStudioVersion -->
+    <WebPublishTargetsVersion Condition=" '$(WebPublishTargetsVersion)' =='' and '$(VisualStudioVersion)' == 10.0 ">10.5</WebPublishTargetsVersion>
+    <WebPublishTargetsVersion Condition=" '$(WebPublishTargetsVersion)'=='' ">$(VisualStudioVersion)</WebPublishTargetsVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(WebPublishTargetsVersion)</VSToolsPath>
+    <_WebPublishTargetsPath Condition=" '$(_WebPublishTargetsPath)'=='' ">$(VSToolsPath)</_WebPublishTargetsPath>
+    <AssemblyFileVersion Condition="'$(AssemblyFileVersion)' == ''">1.0.0.0</AssemblyFileVersion>
+    <AssemblyVersion Condition="'$(AssemblyVersion)' == ''">1.0.0.0</AssemblyVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AssemblyAttributes Include="AssemblyFileVersion">
+      <Value>$(AssemblyFileVersion)</Value>
+    </AssemblyAttributes>
+    <AssemblyAttributes Include="AssemblyVersion">
+      <Value>$(AssemblyVersion)</Value>
+    </AssemblyAttributes>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\csip_commonmodel_sit\BaseItem\CommonBaseItem.csproj">
+      <Project>{EE192BCC-4665-406D-BA88-76863B4B6853}</Project>
+      <Name>CommonBaseItem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\csip_commonmodel_sit\BusinessRules\CommonBusinessRules.csproj">
+      <Project>{1A02033E-F12E-46BB-8AE2-25FE5781260E}</Project>
+      <Name>CommonBusinessRules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\csip_commonmodel_sit\Entity\CommonEntity.csproj">
+      <Project>{E2D629A1-9848-43D9-BF7E-3A18A31CC7A4}</Project>
+      <Name>CommonEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\csip_commonmodel_sit\Framework.Common\Framework.Common.csproj">
+      <Project>{E4A10F71-A7D2-4F4C-ACF8-53E53D8169D5}</Project>
+      <Name>Framework.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\csip_commonmodel_sit\Framework.Controls\WebControls\Framework.WebControls.csproj">
+      <Project>{671EB07B-A4FD-4E6D-AE5C-D185BEB526FB}</Project>
+      <Name>Framework.WebControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\csip_commonmodel_sit\Framework.Data\OM\Framework.Data.OM.csproj">
+      <Project>{EFBB5F60-82AE-4C7F-A773-4E719EFDF037}</Project>
+      <Name>Framework.Data.OM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessRules\BusinessRules.csproj">
+      <Project>{CE5C792C-F8FC-4D92-9576-0D96099508F8}</Project>
+      <Name>BusinessRules_Dev</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{B1A53ACB-4718-4D44-B523-9CD5BB242C19}</Project>
+      <Name>Entity_Dev</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(_WebPublishTargetsPath)\Web\Microsoft.WebSite.Publishing.targets" />
+</Project>

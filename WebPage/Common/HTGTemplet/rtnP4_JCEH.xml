@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hostgateway>
+ <header>
+  <action type="transaction"/>
+  <data id="sessionId" value="CSIPvs26EG_Mv0mVZnmmaIAsP7rZ07709"/>
+  <data id="applicationId" value="CSIP"/>
+  <data id="luType" value="LU62"/>
+  <data id="transactionId" value="P4_JCEH"/>
+ </header>
+ <line no="1">
+  <msgHeader/>
+  <msgBody>
+   <data id="ZIP" value="33069"/>
+   <data id="CRG" value="1"/>
+   <data id="ARG" value="01"/>
+   <data id="AMC_FLAG7" value=""/>
+   <data id="AMC_FLAG6" value=""/>
+   <data id="AMC_FLAG5" value=""/>
+   <data id="AMC_FLAG4" value=""/>
+   <data id="AMC_FLAG3" value=""/>
+   <data id="SINCE" value="9705"/>
+   <data id="AMC_FLAG2" value=""/>
+   <data id="AMC_FLAG1" value=""/>
+   <data id="POSSWORD" value="N"/>
+   <data id="REGION_CODE7" value=""/>
+   <data id="NMBR_OUTST_AUTH7" value="  0"/>
+   <data id="REGION_CODE6" value=""/>
+   <data id="NMBR_OUTST_AUTH6" value="  0"/>
+   <data id="REGION_CODE5" value="205T8223"/>
+   <data id="NMBR_OUTST_AUTH5" value="  0"/>
+   <data id="REGION_CODE4" value=""/>
+   <data id="NMBR_OUTST_AUTH4" value="  0"/>
+   <data id="REGION_CODE3" value=""/>
+   <data id="NMBR_OUTST_AUTH3" value="  0"/>
+   <data id="REGION_CODE2" value="200989ML"/>
+   <data id="NMBR_OUTST_AUTH2" value="  0"/>
+   <data id="ADDR_DATE" value="20090606"/>
+   <data id="REGION_CODE1" value=""/>
+   <data id="NMBR_OUTST_AUTH1" value="  0"/>
+   <data id="SALES_NAME7" value="朱真真"/>
+   <data id="EMBOSSER_NAME_17" value="KUO SZU CHUN"/>
+   <data id="SALES_NAME6" value="朱真真"/>
+   <data id="ALT_BLOCK_DTE7" value="04032009"/>
+   <data id="EMBOSSER_NAME_16" value="KUO CHUN AN"/>
+   <data id="SALES_NAME5" value="江萍萍"/>
+   <data id="ALT_BLOCK_DTE6" value="04032009"/>
+   <data id="EMBOSSER_NAME_15" value="KUO HSIEN YUAN"/>
+   <data id="SALES_NAME4" value="葉丹丹"/>
+   <data id="ALT_BLOCK_DTE5" value="04222009"/>
+   <data id="EMBOSSER_NAME_14" value="KUO AN CHUN"/>
+   <data id="SALES_NAME3" value="葉丹丹"/>
+   <data id="ALT_BLOCK_DTE4" value="04032009"/>
+   <data id="EMBOSSER_NAME_13" value="KUO CHUN AN"/>
+   <data id="SALES_NAME2" value=""/>
+   <data id="ALT_BLOCK_DTE3" value="04032009"/>
+   <data id="EMBOSSER_NAME_12" value="KUO HSIEN YUAN"/>
+   <data id="SALES_NAME1" value="郭原原"/>
+   <data id="COLLATERAL_CODE7" value=""/>
+   <data id="ALT_BLOCK_DTE2" value="06062009"/>
+   <data id="EMBOSSER_NAME_11" value=""/>
+   <data id="COLLATERAL_CODE6" value=""/>
+   <data id="ALT_BLOCK_DTE1" value="04222009"/>
+   <data id="COLLATERAL_CODE5" value=""/>
+   <data id="COLLATERAL_CODE4" value=""/>
+   <data id="COLLATERAL_CODE3" value=""/>
+   <data id="COLLATERAL_CODE2" value=""/>
+   <data id="COLLATERAL_CODE1" value=""/>
+   <data id="FUNCTION_CODE" value="1"/>
+   <data id="SUNIT7" value="70160"/>
+   <data id="SUNIT6" value="70160"/>
+   <data id="SUNIT5" value="11015"/>
+   <data id="SUNIT4" value="15003"/>
+   <data id="SUNIT3" value="15003"/>
+   <data id="SUNIT2" value="12335"/>
+   <data id="SUNIT1" value="00000"/>
+   <data id="DELQ" value="ZZZZZZZZZZZZZZZB76544321"/>
+   <data id="CATEGORY7" value="2"/>
+   <data id="CATEGORY6" value="2"/>
+   <data id="CATEGORY5" value="2"/>
+   <data id="CATEGORY4" value="2"/>
+   <data id="CATEGORY3" value="2"/>
+   <data id="CATEGORY2" value="2"/>
+   <data id="CATEGORY1" value="2"/>
+   <data id="EMPLOYER" value="全球撞球場"/>
+   <data id="USER_ID" value="z07709"/>
+   <data id="CITY" value="桃園縣桃園市"/>
+   <data id="AMNT_OUTST_AUTH7" value="        0"/>
+   <data id="AMNT_OUTST_AUTH6" value="        0"/>
+   <data id="AMNT_OUTST_AUTH5" value="        0"/>
+   <data id="SAVE_ACCT7" value="0000000000000000"/>
+   <data id="AMNT_OUTST_AUTH4" value="        0"/>
+   <data id="SAVE_ACCT6" value="0000000000000000"/>
+   <data id="AMNT_OUTST_AUTH3" value="        0"/>
+   <data id="SAVE_ACCT5" value="0000000000000000"/>
+   <data id="AMNT_OUTST_AUTH2" value="        0"/>
+   <data id="SAVE_ACCT4" value="0000000000000000"/>
+   <data id="AMNT_OUTST_AUTH1" value="        0"/>
+   <data id="SAVE_ACCT3" value="0000000000000000"/>
+   <data id="SAVE_ACCT2" value="0000000000000000"/>
+   <data id="SAVE_ACCT1" value="0000000000000000"/>
+   <data id="MESSAGE_TYPE" value="0001"/>
+   <data id="BLOCK_DTE7" value="12092009"/>
+   <data id="BLOCK_DTE6" value="12092009"/>
+   <data id="BLOCK_DTE5" value="10212009"/>
+   <data id="BLOCK_DTE4" value="12092009"/>
+   <data id="BLOCK_DTE3" value="12092009"/>
+   <data id="TRAN_ID" value="JCEH"/>
+   <data id="BLOCK_DTE2" value="08282009"/>
+   <data id="BLOCK_DTE1" value="10212009"/>
+   <data id="CARDHOLDER_NAME7" value="郭群群"/>
+   <data id="CARDHOLDER_NAME6" value="郭恩恩"/>
+   <data id="CUSTID7" value="H122365713"/>
+   <data id="CARDHOLDER_NAME5" value="郭原原"/>
+   <data id="CUSTID6" value="H122149371"/>
+   <data id="CARDHOLDER_NAME4" value="郭群群"/>
+   <data id="BLOCK7" value="Z"/>
+   <data id="CUSTID5" value="H100559364"/>
+   <data id="CARDHOLDER_NAME3" value="郭恩恩"/>
+   <data id="BLOCK6" value="Z"/>
+   <data id="CUSTID4" value="H122365713"/>
+   <data id="CARDHOLDER_NAME2" value="郭原原"/>
+   <data id="BLOCK5" value="Z"/>
+   <data id="CARDHOLDER_NAME1" value="郭原原"/>
+   <data id="CUSTID3" value="H122149371"/>
+   <data id="BLOCK4" value="Z"/>
+   <data id="CUSTID2" value="H100559364"/>
+   <data id="BLOCK3" value="Z"/>
+   <data id="CUSTID1" value="H100559364"/>
+   <data id="BLOCK2" value="M"/>
+   <data id="BLOCK1" value="Z"/>
+   <data id="CLINE_EXCEED7" value=""/>
+   <data id="CLINE_EXCEED6" value=""/>
+   <data id="CLINE_EXCEED5" value=""/>
+   <data id="HOME-PHONE" value="03 -3669552"/>
+   <data id="CLINE_EXCEED4" value=""/>
+   <data id="CLINE_EXCEED3" value=""/>
+   <data id="CLINE_EXCEED2" value=""/>
+   <data id="CLINE_EXCEED1" value=""/>
+   <data id="STATUS7" value="2"/>
+   <data id="STATUS6" value="2"/>
+   <data id="ACCT_CUST_ID7" value="H100559364"/>
+   <data id="STATUS5" value="2"/>
+   <data id="ACCT_CUST_ID6" value="H100559364"/>
+   <data id="STATUS4" value="2"/>
+   <data id="OASM_M7" value="STZ"/>
+   <data id="ACCT_CUST_ID5" value="H100559364"/>
+   <data id="STATUS3" value="2"/>
+   <data id="OASM_M6" value="STZ"/>
+   <data id="ACCT_CUST_ID4" value="H100559364"/>
+   <data id="STATUS2" value="5"/>
+   <data id="OASM_M5" value="BTZ"/>
+   <data id="STATUS1" value="2"/>
+   <data id="ACCT_CUST_ID3" value="H100559364"/>
+   <data id="OPENED7" value="20031013"/>
+   <data id="OASM_M4" value="STZ"/>
+   <data id="ACCT_CUST_ID2" value="H100559364"/>
+   <data id="OPENED6" value="20030926"/>
+   <data id="OASM_M3" value="STZ"/>
+   <data id="ACCT_CUST_ID1" value="H100559364"/>
+   <data id="CUST_VIP_CODE" value=""/>
+   <data id="OPENED5" value="20030825"/>
+   <data id="OASM_M2" value=""/>
+   <data id="OPENED4" value="19971226"/>
+   <data id="OASM_M1" value="BTZ"/>
+   <data id="OPENED3" value="19971226"/>
+   <data id="DD_MAINT_DATE" value="11/25/2002"/>
+   <data id="OPENED2" value="20040831"/>
+   <data id="OPENED1" value="20060526"/>
+   <data id="CARD_TYPE7" value="600"/>
+   <data id="POSITION" value="10"/>
+   <data id="CARD_TYPE6" value="600"/>
+   <data id="EXPIR_DTE7" value="1009"/>
+   <data id="CARD_TYPE5" value="600"/>
+   <data id="EXPIR_DTE6" value="0909"/>
+   <data id="CARD_TYPE4" value="500"/>
+   <data id="EXPIR_DTE5" value="0809"/>
+   <data id="CARD_TYPE3" value="500"/>
+   <data id="EXPIR_DTE4" value="1208"/>
+   <data id="CARD_TYPE2" value="450"/>
+   <data id="EXPIR_DTE3" value="1208"/>
+   <data id="CARD_TYPE1" value="160"/>
+   <data id="EXPIR_DTE2" value="0815"/>
+   <data id="EXPIR_DTE1" value="1249"/>
+   <data id="CM_CRLIMIT7" value="     150000"/>
+   <data id="CM_CRLIMIT6" value="     150000"/>
+   <data id="CM_CRLIMIT5" value="     150000"/>
+   <data id="CM_CRLIMIT4" value="     100000"/>
+   <data id="WGHT" value="C013C015C015C015"/>
+   <data id="CM_CRLIMIT3" value="     150000"/>
+   <data id="INDICATOR7" value="13"/>
+   <data id="CM_CRLIMIT2" value="     150000"/>
+   <data id="INDICATOR6" value="13"/>
+   <data id="CM_CRLIMIT1" value="     150000"/>
+   <data id="INDICATOR5" value="10"/>
+   <data id="INDICATOR4" value="13"/>
+   <data id="INDICATOR3" value="13"/>
+   <data id="INDICATOR2" value="10"/>
+   <data id="INDICATOR1" value="10"/>
+   <data id="APP_FLAG7" value="1"/>
+   <data id="APP_FLAG6" value="1"/>
+   <data id="APP_FLAG5" value="1"/>
+   <data id="APP_FLAG4" value="1"/>
+   <data id="APP_FLAG3" value="1"/>
+   <data id="APP_FLAG2" value="1"/>
+   <data id="APP_FLAG1" value="1"/>
+   <data id="DTE_LST_PYMT7" value="20080424"/>
+   <data id="FILLER06" value=""/>
+   <data id="DTE_LST_PYMT6" value="20081203"/>
+   <data id="FILLER05" value=""/>
+   <data id="ALT_BLOCK7" value="S"/>
+   <data id="DTE_LST_PYMT5" value="20070925"/>
+   <data id="ALT_BLOCK6" value="S"/>
+   <data id="DTE_LST_PYMT4" value="00000000"/>
+   <data id="ALT_BLOCK5" value="B"/>
+   <data id="DTE_LST_PYMT3" value="19991108"/>
+   <data id="ALT_BLOCK4" value="S"/>
+   <data id="DTE_LST_PYMT2" value="20090424"/>
+   <data id="DTE_LST_PYMT1" value="20060823"/>
+   <data id="ALT_BLOCK3" value="S"/>
+   <data id="ALT_BLOCK2" value="A"/>
+   <data id="ALT_BLOCK1" value="B"/>
+   <data id="USER_CODE7" value="0"/>
+   <data id="USER_CODE6" value="0"/>
+   <data id="USER_CODE5" value="4"/>
+   <data id="USER_CODE4" value="0"/>
+   <data id="USER_CODE3" value="0"/>
+   <data id="USER_CODE2" value="0"/>
+   <data id="USER_CODE1" value="3"/>
+   <data id="CUST_ID" value="H100559364"/>
+   <data id="ADDR_2" value=""/>
+   <data id="ADDR_1" value="建國路４６號３樓"/>
+   <data id="PROGRAM_VERSION" value=""/>
+   <data id="GRADUATE_YYMM" value="00/00"/>
+   <data id="CURR_BAL7" value="          0"/>
+   <data id="CURR_BAL6" value="          0"/>
+   <data id="CURR_BAL5" value="          0"/>
+   <data id="CURR_BAL4" value="          0"/>
+   <data id="CURR_BAL3" value="          0"/>
+   <data id="CURR_BAL2" value="          0"/>
+   <data id="CURR_BAL1" value="          0"/>
+   <data id="PROGRAM_ID" value="JCGU067"/>
+   <data id="DTE_BIRTH" value="08/13/1953"/>
+   <data id="LINE_CNT" value="0008"/>
+   <data id="CARDHOLDER7" value="5433721001666666"/>
+   <data id="CARDHOLDER6" value="5433721001666666"/>
+   <data id="CARDHOLDER5" value="5408291002666666"/>
+   <data id="CARDHOLDER4" value="5433721001666666"/>
+   <data id="CO_OWNER" value=""/>
+   <data id="CARDHOLDER3" value="5433721001666666"/>
+   <data id="CARDHOLDER2" value="1234048000015889"/>
+   <data id="OFFICE_PHONE" value="   -"/>
+   <data id="SHORT_NAME" value="郭原原"/>
+   <data id="CARDHOLDER1" value="4000016060666666"/>
+   <data id="CHIP7" value=""/>
+   <data id="SERV_GRADE" value="4"/>
+   <data id="CHIP6" value=""/>
+   <data id="CARD_CYCLE7" value="05"/>
+   <data id="CHIP5" value=""/>
+   <data id="CARD_CYCLE6" value="05"/>
+   <data id="CHIP4" value=""/>
+   <data id="CARD_CYCLE5" value="05"/>
+   <data id="CHIP3" value=""/>
+   <data id="CARD_CYCLE4" value="05"/>
+   <data id="CHIP2" value=""/>
+   <data id="CHIP1" value=""/>
+   <data id="CARD_CYCLE3" value="05"/>
+   <data id="CARD_CYCLE2" value="05"/>
+   <data id="ACCT_NBR" value="H100559364"/>
+   <data id="CARD_CYCLE1" value="05"/>
+   <data id="CYCLE" value="05"/>
+   <data id="SPACES2" value=""/>
+   <data id="SPACES1" value=""/>
+   <data id="CUST_CODE" value=""/>
+  </msgBody>
+ </line>
+</hostgateway>

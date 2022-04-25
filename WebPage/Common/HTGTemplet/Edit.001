@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hostgateway>
+  <header>
+    <action type="establishSession" />
+  </header>
+  <body>
+      <data id="applicationId" value="CSIP" />
+      <data id="branchNo" value="0888" />
+      <data id="passWord" value="CMB950" />
+      <data id="racfId" value="Z06637" />
+      <data id="racfPassWord" value="0012" />
+      <data id="signOnLU0" value="no" />
+      <data id="userId" value="Z00006637" />
+  </body>
+</hostgateway>
+
+CSIPPyi63OoGvqYJTkByp8asI68Z06637

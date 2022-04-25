@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="macro" targetNamespace="http://tempuri.org/macro.xsd" xmlns:mstns="http://tempuri.org/macro.xsd" xmlns="http://tempuri.org/macro.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="macro" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="macro" msprop:Generator_DataSetName="macro">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Pay_Macro" msprop:Generator_UserTableName="Pay_Macro" msprop:Generator_RowDeletedName="Pay_MacroRowDeleted" msprop:Generator_RowChangedName="Pay_MacroRowChanged" msprop:Generator_RowClassName="Pay_MacroRow" msprop:Generator_RowChangingName="Pay_MacroRowChanging" msprop:Generator_RowEvArgName="Pay_MacroRowChangeEvent" msprop:Generator_RowEvHandlerName="Pay_MacroRowChangeEventHandler" msprop:Generator_TableClassName="Pay_MacroDataTable" msprop:Generator_TableVarName="tablePay_Macro" msprop:Generator_RowDeletingName="Pay_MacroRowDeleting" msprop:Generator_TablePropName="Pay_Macro">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="M_CUST_ID" msprop:Generator_UserColumnName="M_CUST_ID" msprop:Generator_ColumnPropNameInRow="M_CUST_ID" msprop:Generator_ColumnVarNameInTable="columnM_CUST_ID" msprop:Generator_ColumnPropNameInTable="M_CUST_IDColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="M_CUST_NAME" msprop:Generator_UserColumnName="M_CUST_NAME" msprop:Generator_ColumnPropNameInRow="M_CUST_NAME" msprop:Generator_ColumnVarNameInTable="columnM_CUST_NAME" msprop:Generator_ColumnPropNameInTable="M_CUST_NAMEColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="M_CARD_NO" msprop:Generator_UserColumnName="M_CARD_NO" msprop:Generator_ColumnPropNameInRow="M_CARD_NO" msprop:Generator_ColumnVarNameInTable="columnM_CARD_NO" msprop:Generator_ColumnPropNameInTable="M_CARD_NOColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="M_CLOSE_REP" msprop:Generator_UserColumnName="M_CLOSE_REP" msprop:Generator_ColumnPropNameInRow="M_CLOSE_REP" msprop:Generator_ColumnVarNameInTable="columnM_CLOSE_REP" msprop:Generator_ColumnPropNameInTable="M_CLOSE_REPColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="M_BALANCE" msprop:Generator_UserColumnName="M_BALANCE" msprop:Generator_ColumnPropNameInRow="M_BALANCE" msprop:Generator_ColumnVarNameInTable="columnM_BALANCE" msprop:Generator_ColumnPropNameInTable="M_BALANCEColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="M_DEBT_DATE" msprop:Generator_UserColumnName="M_DEBT_DATE" msprop:Generator_ColumnPropNameInRow="M_DEBT_DATE" msprop:Generator_ColumnVarNameInTable="columnM_DEBT_DATE" msprop:Generator_ColumnPropNameInTable="M_DEBT_DATEColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="M_DEBT_AMT" msprop:Generator_UserColumnName="M_DEBT_AMT" msprop:Generator_ColumnPropNameInRow="M_DEBT_AMT" msprop:Generator_ColumnVarNameInTable="columnM_DEBT_AMT" msprop:Generator_ColumnPropNameInTable="M_DEBT_AMTColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="M_DEBT_BALANCE" msprop:Generator_UserColumnName="M_DEBT_BALANCE" msprop:Generator_ColumnPropNameInRow="M_DEBT_BALANCE" msprop:Generator_ColumnVarNameInTable="columnM_DEBT_BALANCE" msprop:Generator_ColumnPropNameInTable="M_DEBT_BALANCEColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="M_LAST_PAY_DATE" msprop:Generator_UserColumnName="M_LAST_PAY_DATE" msprop:Generator_ColumnPropNameInRow="M_LAST_PAY_DATE" msprop:Generator_ColumnVarNameInTable="columnM_LAST_PAY_DATE" msprop:Generator_ColumnPropNameInTable="M_LAST_PAY_DATEColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="M_TOTAL_PAYMENT" msprop:Generator_UserColumnName="M_TOTAL_PAYMENT" msprop:Generator_ColumnPropNameInRow="M_TOTAL_PAYMENT" msprop:Generator_ColumnVarNameInTable="columnM_TOTAL_PAYMENT" msprop:Generator_ColumnPropNameInTable="M_TOTAL_PAYMENTColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="M_CLOSE_DATE" msprop:Generator_UserColumnName="M_CLOSE_DATE" msprop:Generator_ColumnPropNameInRow="M_CLOSE_DATE" msprop:Generator_ColumnVarNameInTable="columnM_CLOSE_DATE" msprop:Generator_ColumnPropNameInTable="M_CLOSE_DATEColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="M_CLOSE_REASON" msprop:Generator_UserColumnName="M_CLOSE_REASON" msprop:Generator_ColumnPropNameInRow="M_CLOSE_REASON" msprop:Generator_ColumnVarNameInTable="columnM_CLOSE_REASON" msprop:Generator_ColumnPropNameInTable="M_CLOSE_REASONColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

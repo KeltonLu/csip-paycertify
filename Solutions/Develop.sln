@@ -1,0 +1,74 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebPage", "..\WebPage\", "{3B94A512-7910-4866-9F50-C61AC36DF197}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = ""$/CSIP SOURCE/PAYCERTIFY/WebPage", WOGAAAAA"
+		SccAuxPath = ""
+		SccLocalPath = "."
+		SccProvider = "MSSCCI:Microsoft Visual SourceSafe"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		ProjectReferences = "{ce5c792c-f8fc-4d92-9576-0d96099508f8}|CSIPPayCertify.BusinessRules.dll;{EE192BCC-4665-406D-BA88-76863B4B6853}|CSIPCommonModel.BaseItem.dll;{1A02033E-F12E-46BB-8AE2-25FE5781260E}|CSIPCommonModel.BusinessRules.dll;{E2D629A1-9848-43D9-BF7E-3A18A31CC7A4}|CSIPCommonModel.EntityLayer.dll;{EFBB5F60-82AE-4C7F-A773-4E719EFDF037}|Framework.Data.OM.dll;{E4A10F71-A7D2-4F4C-ACF8-53E53D8169D5}|Framework.Common.dll;{671EB07B-A4FD-4E6D-AE5C-D185BEB526FB}|Framework.WebControls.dll;{B1A53ACB-4718-4D44-B523-9CD5BB242C19}|CSIPPayCertify.Entity.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_8704"
+		Debug.AspNetCompiler.PhysicalPath = "..\WebPage\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_8704\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_8704"
+		Release.AspNetCompiler.PhysicalPath = "..\WebPage\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_8704\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "8704"
+		VWDDynamicPort = "false"
+		VWDVirtualPath = "/"
+		SlnRelativePath = "..\WebPage\"
+	EndProjectSection
+	ProjectSection(ProjectDependencies) = postProject
+		{CE5C792C-F8FC-4D92-9576-0D96099508F8} = {CE5C792C-F8FC-4D92-9576-0D96099508F8}
+		{B1A53ACB-4718-4D44-B523-9CD5BB242C19} = {B1A53ACB-4718-4D44-B523-9CD5BB242C19}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PayCertify", "PayCertify", "{0C12BDC5-FD15-4CBE-AA01-ED7368EAB383}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessRules_Dev", "..\BusinessRules\BusinessRules_Dev.csproj", "{CE5C792C-F8FC-4D92-9576-0D96099508F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity_Dev", "..\Entity\Entity_Dev.csproj", "{B1A53ACB-4718-4D44-B523-9CD5BB242C19}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B94A512-7910-4866-9F50-C61AC36DF197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B94A512-7910-4866-9F50-C61AC36DF197}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B94A512-7910-4866-9F50-C61AC36DF197}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B94A512-7910-4866-9F50-C61AC36DF197}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{CE5C792C-F8FC-4D92-9576-0D96099508F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE5C792C-F8FC-4D92-9576-0D96099508F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE5C792C-F8FC-4D92-9576-0D96099508F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE5C792C-F8FC-4D92-9576-0D96099508F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1A53ACB-4718-4D44-B523-9CD5BB242C19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1A53ACB-4718-4D44-B523-9CD5BB242C19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1A53ACB-4718-4D44-B523-9CD5BB242C19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1A53ACB-4718-4D44-B523-9CD5BB242C19}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3B94A512-7910-4866-9F50-C61AC36DF197} = {0C12BDC5-FD15-4CBE-AA01-ED7368EAB383}
+		{CE5C792C-F8FC-4D92-9576-0D96099508F8} = {0C12BDC5-FD15-4CBE-AA01-ED7368EAB383}
+		{B1A53ACB-4718-4D44-B523-9CD5BB242C19} = {0C12BDC5-FD15-4CBE-AA01-ED7368EAB383}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {63FBE515-81C0-4E3F-A53A-619831CAF8A8}
+	EndGlobalSection
+EndGlobal
